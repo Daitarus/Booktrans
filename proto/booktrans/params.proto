@@ -1,0 +1,12 @@
+syntax = "proto3";
+package daitarus.booktrans.booktrans;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/Daitarus/Booktrans/x/booktrans/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}
