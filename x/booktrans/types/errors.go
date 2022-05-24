@@ -8,5 +8,7 @@ import (
 
 // x/booktrans module sentinel errors
 var (
-	ErrSample = sdkerrors.Register(ModuleName, 1100, "sample error")
+	ErrSample      = sdkerrors.Register(ModuleName, 1100, "sample error")
+	ErrInvalidName = sdkerrors.Register(ModuleName, 1101, "Name is invalid: %s")
+	ErrInvalidAdd  = sdkerrors.Register(ModuleName, 1102, "Address is invalid: %s")
 )
