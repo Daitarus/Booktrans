@@ -1,0 +1,12 @@
+syntax = "proto3";
+package daitarus.booktrans.booktrans;
+
+option go_package = "github.com/Daitarus/Booktrans/x/booktrans/types";
+
+message StoredBook {
+  string index = 1; 
+  string name = 2; 
+  string address = 3; 
+  
+}
+

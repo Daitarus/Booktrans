@@ -3,6 +3,8 @@ package daitarus.booktrans.booktrans;
 
 import "gogoproto/gogo.proto";
 import "booktrans/params.proto";
+import "booktrans/new_book.proto";
+import "booktrans/stored_book.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
 option go_package = "github.com/Daitarus/Booktrans/x/booktrans/types";
@@ -10,5 +12,7 @@ option go_package = "github.com/Daitarus/Booktrans/x/booktrans/types";
 // GenesisState defines the booktrans module's genesis state.
 message GenesisState {
   Params params = 1 [(gogoproto.nullable) = false];
+  NewBook newBook = 2;
+  repeated StoredBook storedBookList = 3 [(gogoproto.nullable) = false];
   // this line is used by starport scaffolding # genesis/proto/state
 }

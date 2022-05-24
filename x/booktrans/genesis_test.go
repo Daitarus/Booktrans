@@ -14,6 +14,18 @@ func TestGenesis(t *testing.T) {
 	genesisState := types.GenesisState{
 		Params: types.DefaultParams(),
 
+		NewBook: &types.NewBook{
+			Name:    "50",
+			IdValue: 63,
+		},
+		StoredBookList: []types.StoredBook{
+			{
+				Index: "0",
+			},
+			{
+				Index: "1",
+			},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -25,5 +37,7 @@ func TestGenesis(t *testing.T) {
 	nullify.Fill(&genesisState)
 	nullify.Fill(got)
 
+	require.Equal(t, genesisState.NewBook, got.NewBook)
+	require.ElementsMatch(t, genesisState.StoredBookList, got.StoredBookList)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

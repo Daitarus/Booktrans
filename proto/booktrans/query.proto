@@ -5,6 +5,8 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "booktrans/params.proto";
+import "booktrans/new_book.proto";
+import "booktrans/stored_book.proto";
 // this line is used by starport scaffolding # 1
 
 option go_package = "github.com/Daitarus/Booktrans/x/booktrans/types";
@@ -15,7 +17,21 @@ service Query {
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/Daitarus/Booktrans/booktrans/params";
   }
-  // this line is used by starport scaffolding # 2
+  // Queries a NewBook by index.
+	rpc NewBook(QueryGetNewBookRequest) returns (QueryGetNewBookResponse) {
+		option (google.api.http).get = "/Daitarus/Booktrans/booktrans/new_book";
+	}
+// Queries a StoredBook by index.
+	rpc StoredBook(QueryGetStoredBookRequest) returns (QueryGetStoredBookResponse) {
+		option (google.api.http).get = "/Daitarus/Booktrans/booktrans/stored_book/{index}";
+	}
+
+	// Queries a list of StoredBook items.
+	rpc StoredBookAll(QueryAllStoredBookRequest) returns (QueryAllStoredBookResponse) {
+		option (google.api.http).get = "/Daitarus/Booktrans/booktrans/stored_book";
+	}
+
+// this line is used by starport scaffolding # 2
 }
 
 // QueryParamsRequest is request type for the Query/Params RPC method.
@@ -25,6 +41,29 @@ message QueryParamsRequest {}
 message QueryParamsResponse {
   // params holds all the parameters of this module.
   Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetNewBookRequest {}
+
+message QueryGetNewBookResponse {
+	NewBook NewBook = 1 [(gogoproto.nullable) = false];
+}
+message QueryGetStoredBookRequest {
+	  string index = 1;
+
+}
+
+message QueryGetStoredBookResponse {
+	StoredBook storedBook = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllStoredBookRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllStoredBookResponse {
+	repeated StoredBook storedBook = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
 // this line is used by starport scaffolding # 3

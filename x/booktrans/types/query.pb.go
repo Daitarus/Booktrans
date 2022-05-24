@@ -6,7 +6,7 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	_ "github.com/cosmos/cosmos-sdk/types/query"
+	query "github.com/cosmos/cosmos-sdk/types/query"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
@@ -113,35 +113,321 @@ func (m *QueryParamsResponse) GetParams() Params {
 	return Params{}
 }
 
+type QueryGetNewBookRequest struct {
+}
+
+func (m *QueryGetNewBookRequest) Reset()         { *m = QueryGetNewBookRequest{} }
+func (m *QueryGetNewBookRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetNewBookRequest) ProtoMessage()    {}
+func (*QueryGetNewBookRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1836d1eb4bbfe7b9, []int{2}
+}
+func (m *QueryGetNewBookRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetNewBookRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetNewBookRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetNewBookRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetNewBookRequest.Merge(m, src)
+}
+func (m *QueryGetNewBookRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetNewBookRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetNewBookRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetNewBookRequest proto.InternalMessageInfo
+
+type QueryGetNewBookResponse struct {
+	NewBook NewBook `protobuf:"bytes,1,opt,name=NewBook,proto3" json:"NewBook"`
+}
+
+func (m *QueryGetNewBookResponse) Reset()         { *m = QueryGetNewBookResponse{} }
+func (m *QueryGetNewBookResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetNewBookResponse) ProtoMessage()    {}
+func (*QueryGetNewBookResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1836d1eb4bbfe7b9, []int{3}
+}
+func (m *QueryGetNewBookResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetNewBookResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetNewBookResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetNewBookResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetNewBookResponse.Merge(m, src)
+}
+func (m *QueryGetNewBookResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetNewBookResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetNewBookResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetNewBookResponse proto.InternalMessageInfo
+
+func (m *QueryGetNewBookResponse) GetNewBook() NewBook {
+	if m != nil {
+		return m.NewBook
+	}
+	return NewBook{}
+}
+
+type QueryGetStoredBookRequest struct {
+	Index string `protobuf:"bytes,1,opt,name=index,proto3" json:"index,omitempty"`
+}
+
+func (m *QueryGetStoredBookRequest) Reset()         { *m = QueryGetStoredBookRequest{} }
+func (m *QueryGetStoredBookRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetStoredBookRequest) ProtoMessage()    {}
+func (*QueryGetStoredBookRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1836d1eb4bbfe7b9, []int{4}
+}
+func (m *QueryGetStoredBookRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetStoredBookRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetStoredBookRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetStoredBookRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetStoredBookRequest.Merge(m, src)
+}
+func (m *QueryGetStoredBookRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetStoredBookRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetStoredBookRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetStoredBookRequest proto.InternalMessageInfo
+
+func (m *QueryGetStoredBookRequest) GetIndex() string {
+	if m != nil {
+		return m.Index
+	}
+	return ""
+}
+
+type QueryGetStoredBookResponse struct {
+	StoredBook StoredBook `protobuf:"bytes,1,opt,name=storedBook,proto3" json:"storedBook"`
+}
+
+func (m *QueryGetStoredBookResponse) Reset()         { *m = QueryGetStoredBookResponse{} }
+func (m *QueryGetStoredBookResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetStoredBookResponse) ProtoMessage()    {}
+func (*QueryGetStoredBookResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1836d1eb4bbfe7b9, []int{5}
+}
+func (m *QueryGetStoredBookResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetStoredBookResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetStoredBookResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetStoredBookResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetStoredBookResponse.Merge(m, src)
+}
+func (m *QueryGetStoredBookResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetStoredBookResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetStoredBookResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetStoredBookResponse proto.InternalMessageInfo
+
+func (m *QueryGetStoredBookResponse) GetStoredBook() StoredBook {
+	if m != nil {
+		return m.StoredBook
+	}
+	return StoredBook{}
+}
+
+type QueryAllStoredBookRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllStoredBookRequest) Reset()         { *m = QueryAllStoredBookRequest{} }
+func (m *QueryAllStoredBookRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllStoredBookRequest) ProtoMessage()    {}
+func (*QueryAllStoredBookRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1836d1eb4bbfe7b9, []int{6}
+}
+func (m *QueryAllStoredBookRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllStoredBookRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllStoredBookRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllStoredBookRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllStoredBookRequest.Merge(m, src)
+}
+func (m *QueryAllStoredBookRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllStoredBookRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllStoredBookRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllStoredBookRequest proto.InternalMessageInfo
+
+func (m *QueryAllStoredBookRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllStoredBookResponse struct {
+	StoredBook []StoredBook        `protobuf:"bytes,1,rep,name=storedBook,proto3" json:"storedBook"`
+	Pagination *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllStoredBookResponse) Reset()         { *m = QueryAllStoredBookResponse{} }
+func (m *QueryAllStoredBookResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllStoredBookResponse) ProtoMessage()    {}
+func (*QueryAllStoredBookResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1836d1eb4bbfe7b9, []int{7}
+}
+func (m *QueryAllStoredBookResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllStoredBookResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllStoredBookResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllStoredBookResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllStoredBookResponse.Merge(m, src)
+}
+func (m *QueryAllStoredBookResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllStoredBookResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllStoredBookResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllStoredBookResponse proto.InternalMessageInfo
+
+func (m *QueryAllStoredBookResponse) GetStoredBook() []StoredBook {
+	if m != nil {
+		return m.StoredBook
+	}
+	return nil
+}
+
+func (m *QueryAllStoredBookResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "daitarus.booktrans.booktrans.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "daitarus.booktrans.booktrans.QueryParamsResponse")
+	proto.RegisterType((*QueryGetNewBookRequest)(nil), "daitarus.booktrans.booktrans.QueryGetNewBookRequest")
+	proto.RegisterType((*QueryGetNewBookResponse)(nil), "daitarus.booktrans.booktrans.QueryGetNewBookResponse")
+	proto.RegisterType((*QueryGetStoredBookRequest)(nil), "daitarus.booktrans.booktrans.QueryGetStoredBookRequest")
+	proto.RegisterType((*QueryGetStoredBookResponse)(nil), "daitarus.booktrans.booktrans.QueryGetStoredBookResponse")
+	proto.RegisterType((*QueryAllStoredBookRequest)(nil), "daitarus.booktrans.booktrans.QueryAllStoredBookRequest")
+	proto.RegisterType((*QueryAllStoredBookResponse)(nil), "daitarus.booktrans.booktrans.QueryAllStoredBookResponse")
 }
 
 func init() { proto.RegisterFile("booktrans/query.proto", fileDescriptor_1836d1eb4bbfe7b9) }
 
 var fileDescriptor_1836d1eb4bbfe7b9 = []byte{
-	// 306 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x4d, 0xca, 0xcf, 0xcf,
-	0x2e, 0x29, 0x4a, 0xcc, 0x2b, 0xd6, 0x2f, 0x2c, 0x4d, 0x2d, 0xaa, 0xd4, 0x2b, 0x28, 0xca, 0x2f,
-	0xc9, 0x17, 0x92, 0x49, 0x49, 0xcc, 0x2c, 0x49, 0x2c, 0x2a, 0x2d, 0xd6, 0x83, 0xcb, 0x23, 0x58,
-	0x52, 0x22, 0xe9, 0xf9, 0xe9, 0xf9, 0x60, 0x85, 0xfa, 0x20, 0x16, 0x44, 0x8f, 0x94, 0x4c, 0x7a,
-	0x7e, 0x7e, 0x7a, 0x4e, 0xaa, 0x7e, 0x62, 0x41, 0xa6, 0x7e, 0x62, 0x5e, 0x5e, 0x7e, 0x49, 0x62,
-	0x49, 0x66, 0x7e, 0x5e, 0x31, 0x54, 0x56, 0x2b, 0x39, 0xbf, 0x38, 0x37, 0xbf, 0x58, 0x3f, 0x29,
-	0xb1, 0x38, 0x15, 0x62, 0x95, 0x7e, 0x99, 0x61, 0x52, 0x6a, 0x49, 0xa2, 0xa1, 0x7e, 0x41, 0x62,
-	0x7a, 0x66, 0x1e, 0x58, 0x31, 0x54, 0xad, 0x18, 0xc2, 0x51, 0x05, 0x89, 0x45, 0x89, 0xb9, 0x50,
-	0x33, 0x94, 0x44, 0xb8, 0x84, 0x02, 0x41, 0x3a, 0x03, 0xc0, 0x82, 0x41, 0xa9, 0x85, 0xa5, 0xa9,
-	0xc5, 0x25, 0x4a, 0x91, 0x5c, 0xc2, 0x28, 0xa2, 0xc5, 0x05, 0xf9, 0x79, 0xc5, 0xa9, 0x42, 0x4e,
-	0x5c, 0x6c, 0x10, 0xcd, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0xdc, 0x46, 0x2a, 0x7a, 0xf8, 0xfc, 0xa4,
-	0x07, 0xd1, 0xed, 0xc4, 0x72, 0xe2, 0x9e, 0x3c, 0x43, 0x10, 0x54, 0xa7, 0xd1, 0x52, 0x46, 0x2e,
-	0x56, 0xb0, 0xd9, 0x42, 0xb3, 0x19, 0xb9, 0xd8, 0x20, 0x4a, 0x84, 0x0c, 0xf0, 0x1b, 0x84, 0xe9,
-	0x42, 0x29, 0x43, 0x12, 0x74, 0x40, 0x5c, 0xaf, 0xa4, 0xd3, 0x74, 0xf9, 0xc9, 0x64, 0x26, 0x35,
-	0x21, 0x15, 0x7d, 0x17, 0xa8, 0x56, 0x7d, 0x27, 0x78, 0xa0, 0xa0, 0x07, 0x8f, 0x93, 0xe7, 0x89,
-	0x47, 0x72, 0x8c, 0x17, 0x1e, 0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x38, 0xe1, 0xb1, 0x1c, 0xc3,
-	0x85, 0xc7, 0x72, 0x0c, 0x37, 0x1e, 0xcb, 0x31, 0x44, 0xe9, 0xa7, 0x67, 0x96, 0x64, 0x94, 0x26,
-	0xe9, 0x25, 0xe7, 0xe7, 0x62, 0x33, 0xa9, 0x02, 0xc9, 0xac, 0x92, 0xca, 0x82, 0xd4, 0xe2, 0x24,
-	0x36, 0x70, 0x50, 0x1b, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x7d, 0xc8, 0x4c, 0xee, 0x19, 0x02,
-	0x00, 0x00,
+	// 575 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x3f, 0x6f, 0xd3, 0x40,
+	0x18, 0xc6, 0xe3, 0x42, 0x82, 0x38, 0xc4, 0x72, 0x84, 0x12, 0x4c, 0x65, 0x90, 0x55, 0x42, 0xf8,
+	0xa3, 0x3b, 0xdc, 0x82, 0x80, 0xb1, 0x11, 0x50, 0xb1, 0x54, 0x25, 0x4c, 0xb0, 0xc0, 0x25, 0x39,
+	0x19, 0xab, 0x8e, 0xcf, 0xf5, 0x5d, 0x68, 0x2b, 0xc4, 0xc2, 0x27, 0x40, 0x62, 0x64, 0xe7, 0x1b,
+	0x74, 0x61, 0x65, 0xe9, 0x58, 0x89, 0x85, 0x09, 0xa1, 0x84, 0x0f, 0x82, 0x72, 0xf7, 0x26, 0x76,
+	0x9b, 0x60, 0x1c, 0x75, 0xb3, 0xef, 0xbd, 0xe7, 0x7d, 0x7e, 0x67, 0x3f, 0xef, 0xa1, 0x8b, 0x6d,
+	0x21, 0xb6, 0x54, 0xc2, 0x22, 0x49, 0xb7, 0xfb, 0x3c, 0xd9, 0x23, 0x71, 0x22, 0x94, 0xc0, 0x4b,
+	0x5d, 0x16, 0x28, 0x96, 0xf4, 0x25, 0x99, 0xd4, 0xd3, 0x27, 0xbb, 0xea, 0x0b, 0x5f, 0xe8, 0x8d,
+	0x74, 0xf4, 0x64, 0x34, 0xf6, 0x92, 0x2f, 0x84, 0x1f, 0x72, 0xca, 0xe2, 0x80, 0xb2, 0x28, 0x12,
+	0x8a, 0xa9, 0x40, 0x44, 0x12, 0xaa, 0xb7, 0x3a, 0x42, 0xf6, 0x84, 0xa4, 0x6d, 0x26, 0xb9, 0xb1,
+	0xa2, 0xef, 0xbc, 0x36, 0x57, 0xcc, 0xa3, 0x31, 0xf3, 0x83, 0x48, 0x6f, 0x86, 0xbd, 0x8b, 0x29,
+	0x54, 0xcc, 0x12, 0xd6, 0x1b, 0xf7, 0xa8, 0xa5, 0xeb, 0x11, 0xdf, 0x79, 0x3d, 0x7a, 0x83, 0xca,
+	0x95, 0xb4, 0x22, 0x95, 0x48, 0x78, 0x37, 0x53, 0x74, 0xab, 0x08, 0x3f, 0x1f, 0x19, 0x6e, 0xea,
+	0x5e, 0x2d, 0xbe, 0xdd, 0xe7, 0x52, 0xb9, 0x2f, 0xd1, 0x85, 0x23, 0xab, 0x32, 0x16, 0x91, 0xe4,
+	0xb8, 0x89, 0x2a, 0xc6, 0xb3, 0x66, 0x5d, 0xb3, 0x1a, 0xe7, 0x56, 0x96, 0x49, 0xde, 0xa7, 0x20,
+	0x46, 0xdd, 0x3c, 0x7d, 0xf0, 0xeb, 0x6a, 0xa9, 0x05, 0x4a, 0xb7, 0x86, 0x16, 0x75, 0xeb, 0x75,
+	0xae, 0x36, 0xf8, 0x4e, 0x53, 0x88, 0xad, 0xb1, 0xe9, 0x1b, 0x74, 0x69, 0xaa, 0x02, 0xc6, 0x4f,
+	0xd0, 0x19, 0x58, 0x02, 0xe7, 0xeb, 0xf9, 0xce, 0xb0, 0x19, 0xac, 0xc7, 0x5a, 0xd7, 0x43, 0x97,
+	0xc7, 0x0e, 0x2f, 0xf4, 0x97, 0xc8, 0xd8, 0xe3, 0x2a, 0x2a, 0x07, 0x51, 0x97, 0xef, 0x6a, 0x87,
+	0xb3, 0x2d, 0xf3, 0xe2, 0x86, 0xc8, 0x9e, 0x25, 0x01, 0xae, 0x0d, 0x84, 0xe4, 0x64, 0x15, 0xd0,
+	0x1a, 0xf9, 0x68, 0x69, 0x17, 0xa0, 0xcb, 0x74, 0x70, 0x3b, 0x00, 0xb8, 0x16, 0x86, 0xd3, 0x80,
+	0x4f, 0x11, 0x4a, 0xd3, 0x00, 0x66, 0x75, 0x62, 0xa2, 0x43, 0x46, 0xd1, 0x21, 0x26, 0xa5, 0x10,
+	0x1d, 0xb2, 0xc9, 0x7c, 0x0e, 0xda, 0x56, 0x46, 0xe9, 0xee, 0x5b, 0x70, 0xa6, 0x63, 0x2e, 0xff,
+	0x38, 0xd3, 0xa9, 0x93, 0x9d, 0x09, 0xaf, 0x1f, 0xc1, 0x5e, 0xd0, 0xd8, 0x37, 0xfe, 0x8b, 0x6d,
+	0x60, 0xb2, 0xdc, 0x2b, 0xdf, 0xcb, 0xa8, 0xac, 0xb9, 0xf1, 0x17, 0x0b, 0x55, 0x4c, 0xb8, 0xf0,
+	0xdd, 0x7c, 0xb2, 0xe9, 0x6c, 0xdb, 0xde, 0x1c, 0x0a, 0x43, 0xe1, 0xde, 0xf9, 0xf8, 0xe3, 0xcf,
+	0xe7, 0x85, 0x3a, 0x5e, 0xa6, 0x8f, 0x41, 0x4a, 0x9b, 0x93, 0x99, 0x3a, 0x3e, 0x8f, 0xf8, 0xab,
+	0x35, 0x49, 0x2b, 0xbe, 0x57, 0xc0, 0x6c, 0x6a, 0x12, 0xec, 0xfb, 0x73, 0xaa, 0x00, 0x93, 0x68,
+	0xcc, 0x06, 0xae, 0xe7, 0x63, 0x8e, 0xaf, 0x07, 0xfc, 0xcd, 0x42, 0x28, 0xfd, 0x75, 0xf8, 0x41,
+	0x31, 0xd7, 0xa9, 0x60, 0xda, 0x0f, 0xe7, 0x17, 0x02, 0xf1, 0x23, 0x4d, 0xbc, 0x8a, 0xbd, 0x7c,
+	0xe2, 0xcc, 0xb5, 0x45, 0xdf, 0xeb, 0xb9, 0xfc, 0x80, 0xf7, 0x2d, 0x74, 0x3e, 0xed, 0xb8, 0x16,
+	0x86, 0x85, 0xf8, 0x67, 0x0d, 0x56, 0x21, 0xfe, 0x99, 0xb3, 0xe2, 0x7a, 0x9a, 0xff, 0x36, 0xbe,
+	0x59, 0x98, 0xbf, 0xf9, 0xec, 0x60, 0xe0, 0x58, 0x87, 0x03, 0xc7, 0xfa, 0x3d, 0x70, 0xac, 0x4f,
+	0x43, 0xa7, 0x74, 0x38, 0x74, 0x4a, 0x3f, 0x87, 0x4e, 0xe9, 0x15, 0xf5, 0x03, 0xf5, 0xb6, 0xdf,
+	0x26, 0x1d, 0xd1, 0x9b, 0xd5, 0x6e, 0x37, 0xd3, 0x50, 0xed, 0xc5, 0x5c, 0xb6, 0x2b, 0xfa, 0x0a,
+	0x5f, 0xfd, 0x1b, 0x00, 0x00, 0xff, 0xff, 0xd7, 0xe4, 0x35, 0x8a, 0xa8, 0x06, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -158,6 +444,12 @@ const _ = grpc.SupportPackageIsVersion4
 type QueryClient interface {
 	// Parameters queries the parameters of the module.
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
+	// Queries a NewBook by index.
+	NewBook(ctx context.Context, in *QueryGetNewBookRequest, opts ...grpc.CallOption) (*QueryGetNewBookResponse, error)
+	// Queries a StoredBook by index.
+	StoredBook(ctx context.Context, in *QueryGetStoredBookRequest, opts ...grpc.CallOption) (*QueryGetStoredBookResponse, error)
+	// Queries a list of StoredBook items.
+	StoredBookAll(ctx context.Context, in *QueryAllStoredBookRequest, opts ...grpc.CallOption) (*QueryAllStoredBookResponse, error)
 }
 
 type queryClient struct {
@@ -177,10 +469,43 @@ func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts .
 	return out, nil
 }
 
+func (c *queryClient) NewBook(ctx context.Context, in *QueryGetNewBookRequest, opts ...grpc.CallOption) (*QueryGetNewBookResponse, error) {
+	out := new(QueryGetNewBookResponse)
+	err := c.cc.Invoke(ctx, "/daitarus.booktrans.booktrans.Query/NewBook", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) StoredBook(ctx context.Context, in *QueryGetStoredBookRequest, opts ...grpc.CallOption) (*QueryGetStoredBookResponse, error) {
+	out := new(QueryGetStoredBookResponse)
+	err := c.cc.Invoke(ctx, "/daitarus.booktrans.booktrans.Query/StoredBook", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) StoredBookAll(ctx context.Context, in *QueryAllStoredBookRequest, opts ...grpc.CallOption) (*QueryAllStoredBookResponse, error) {
+	out := new(QueryAllStoredBookResponse)
+	err := c.cc.Invoke(ctx, "/daitarus.booktrans.booktrans.Query/StoredBookAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
+	// Queries a NewBook by index.
+	NewBook(context.Context, *QueryGetNewBookRequest) (*QueryGetNewBookResponse, error)
+	// Queries a StoredBook by index.
+	StoredBook(context.Context, *QueryGetStoredBookRequest) (*QueryGetStoredBookResponse, error)
+	// Queries a list of StoredBook items.
+	StoredBookAll(context.Context, *QueryAllStoredBookRequest) (*QueryAllStoredBookResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -189,6 +514,15 @@ type UnimplementedQueryServer struct {
 
 func (*UnimplementedQueryServer) Params(ctx context.Context, req *QueryParamsRequest) (*QueryParamsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Params not implemented")
+}
+func (*UnimplementedQueryServer) NewBook(ctx context.Context, req *QueryGetNewBookRequest) (*QueryGetNewBookResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NewBook not implemented")
+}
+func (*UnimplementedQueryServer) StoredBook(ctx context.Context, req *QueryGetStoredBookRequest) (*QueryGetStoredBookResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StoredBook not implemented")
+}
+func (*UnimplementedQueryServer) StoredBookAll(ctx context.Context, req *QueryAllStoredBookRequest) (*QueryAllStoredBookResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StoredBookAll not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -213,6 +547,60 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_NewBook_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetNewBookRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).NewBook(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/daitarus.booktrans.booktrans.Query/NewBook",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).NewBook(ctx, req.(*QueryGetNewBookRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_StoredBook_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetStoredBookRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).StoredBook(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/daitarus.booktrans.booktrans.Query/StoredBook",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).StoredBook(ctx, req.(*QueryGetStoredBookRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_StoredBookAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllStoredBookRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).StoredBookAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/daitarus.booktrans.booktrans.Query/StoredBookAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).StoredBookAll(ctx, req.(*QueryAllStoredBookRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "daitarus.booktrans.booktrans.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -220,6 +608,18 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Params",
 			Handler:    _Query_Params_Handler,
+		},
+		{
+			MethodName: "NewBook",
+			Handler:    _Query_NewBook_Handler,
+		},
+		{
+			MethodName: "StoredBook",
+			Handler:    _Query_StoredBook_Handler,
+		},
+		{
+			MethodName: "StoredBookAll",
+			Handler:    _Query_StoredBookAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -282,6 +682,209 @@ func (m *QueryParamsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetNewBookRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetNewBookRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetNewBookRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetNewBookResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetNewBookResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetNewBookResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.NewBook.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetStoredBookRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetStoredBookRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetStoredBookRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Index) > 0 {
+		i -= len(m.Index)
+		copy(dAtA[i:], m.Index)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Index)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetStoredBookResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetStoredBookResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetStoredBookResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.StoredBook.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllStoredBookRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllStoredBookRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllStoredBookRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllStoredBookResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllStoredBookResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllStoredBookResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.StoredBook) > 0 {
+		for iNdEx := len(m.StoredBook) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.StoredBook[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -310,6 +913,82 @@ func (m *QueryParamsResponse) Size() (n int) {
 	_ = l
 	l = m.Params.Size()
 	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryGetNewBookRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *QueryGetNewBookResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.NewBook.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryGetStoredBookRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Index)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetStoredBookResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.StoredBook.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllStoredBookRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllStoredBookResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.StoredBook) > 0 {
+		for _, e := range m.StoredBook {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
 	return n
 }
 
@@ -428,6 +1107,510 @@ func (m *QueryParamsResponse) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			if err := m.Params.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetNewBookRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetNewBookRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetNewBookRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetNewBookResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetNewBookResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetNewBookResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NewBook", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.NewBook.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetStoredBookRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetStoredBookRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetStoredBookRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Index", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Index = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetStoredBookResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetStoredBookResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetStoredBookResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field StoredBook", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.StoredBook.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllStoredBookRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllStoredBookRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllStoredBookRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllStoredBookResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllStoredBookResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllStoredBookResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field StoredBook", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.StoredBook = append(m.StoredBook, StoredBook{})
+			if err := m.StoredBook[len(m.StoredBook)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

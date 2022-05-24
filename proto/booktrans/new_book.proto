@@ -1,0 +1,9 @@
+syntax = "proto3";
+package daitarus.booktrans.booktrans;
+
+option go_package = "github.com/Daitarus/Booktrans/x/booktrans/types";
+
+message NewBook {
+  string name = 1; 
+  uint64 idValue = 2;   
+}
